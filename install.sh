@@ -6,6 +6,7 @@ apt-get update -y && apt-get install -y curl
 
 mkdir /home/node
 chmod +x /root/nvm_install.sh
+chmod +x /root/nodeapp.sh
 /bin/bash -c "/root/nvm_install.sh"
 #curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
 
@@ -19,9 +20,9 @@ npm install -g bower pm2
 
 apt-get update -y && apt-get install -y git supervisor mongodb bcrypt make gcc
 
-mkdir /app
-cd /app
-git clone -b v1.4.3 https://github.com/NodeBB/NodeBB.git /app
+mkdir /app-base
+cd /app-base
+git clone -b v1.4.3 https://github.com/NodeBB/NodeBB.git /app-base
 git checkout v1.4.3
 
 npm install
