@@ -1,14 +1,10 @@
-FROM ubuntu
+FROM ubuntu:16.04
 
 MAINTAINER soywiz <soywiz@gmail.com>
 
-EXPOSE 4567
+ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update -y
-RUN apt-get install -y git
-RUN apt-get install -y nodejs npm
-RUN apt-get install -y mongodb
-RUN apt-get install -y redis-server
+RUN apt-get update -y && apt-get install -y git supervisor nodejs npm mongodb
 
 RUN mkdir /app
 RUN git clone -b v1.4.3 https://github.com/NodeBB/NodeBB.git /app
@@ -17,8 +13,8 @@ RUN cd /app; npm install
 
 VOLUME ["/var/lib/mongodb/", "/app/public/uploads"]
 
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
 # Start MongoDB
-ENTRYPOINT mongod --fork -f /etc/mongodb.conf \
- && redis-server /etc/redis/redis.conf \
- && nodejs /app/app.js \
- && bash
+EXPOSE 4567
+CMD ["/usr/bin/supervisord"]
