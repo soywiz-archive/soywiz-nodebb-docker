@@ -7,7 +7,7 @@ nvm_has() {
 }
 
 nvm_install_dir() {
-  printf %s "${NVM_DIR:-"$HOME/.nvm"}" | sed "s:^$HOME:\$HOME:"
+  echo "${NVM_DIR:-"$HOME/.nvm"}"
 }
 
 nvm_latest_version() {
