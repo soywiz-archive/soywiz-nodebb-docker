@@ -4,14 +4,16 @@ MAINTAINER soywiz <soywiz@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
+ADD nvm_install.sh /root/
+
+RUN chmod a+x /root/nvm_install.sh && \
+  /root/nvm_install.sh && \
+  source /root/.bashrc && \
+  cd /root && \
+  nvm install 6 && \
+  nvm use 6
+
 RUN apt-get update -y && apt-get install -y git supervisor mongodb bcrypt curl wget
-
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-
-RUN . "$HOME/.nvm/nvm.sh"
-
-RUN nvm install 6
-RUN nvm use 6
 
 RUN mkdir /app
 RUN git clone -b v1.4.3 https://github.com/NodeBB/NodeBB.git /app
