@@ -25,4 +25,4 @@ git clone -b v1.4.3 https://github.com/NodeBB/NodeBB.git /app
 git checkout v1.4.3
 
 npm install
-npm install bcrypt -g
+#npm install bcrypt -g
