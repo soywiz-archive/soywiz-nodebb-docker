@@ -1,1 +1,1 @@
-docker build -t soywiz:nodebb .
+docker build -t soywiz/nodebb .
