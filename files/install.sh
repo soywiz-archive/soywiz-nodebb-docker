@@ -18,7 +18,7 @@ nvm alias default $NODE_VERSION
 nvm use $NODE_VERSION
 npm install -g bower pm2
 
-apt-get update -y && apt-get install -y git supervisor mongodb bcrypt make gcc
+apt-get update -y && apt-get install -y git supervisor mongodb bcrypt make gcc netcat nano
 
 mkdir /app-base
 cd /app-base
