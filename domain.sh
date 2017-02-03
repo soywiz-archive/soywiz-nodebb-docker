@@ -1,1 +1,1 @@
-export DOMAIN=soywiz-nodebb
+export DOMAIN=$(basename $(dirname "$(readlink -f "$0")"))
