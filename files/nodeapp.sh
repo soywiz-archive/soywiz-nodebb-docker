@@ -9,4 +9,4 @@ else
     echo "=> Using an existing volume /app"
 fi
 
-. /home/node/.nvm/nvm.sh && nvm use default; cd /app; node /app/app.js
+. /home/node/.nvm/nvm.sh && nvm use default; cd /app; node /app/app.js --port 80

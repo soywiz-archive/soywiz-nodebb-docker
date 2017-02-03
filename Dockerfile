@@ -18,5 +18,5 @@ RUN chmod 777 /root/install.sh && /bin/bash -c "source /root/install.sh"
 
 VOLUME ["/var/lib/mongodb/", "/app"]
 
-EXPOSE 4567
+EXPOSE 80 4567
 CMD ["/usr/bin/supervisord"]
