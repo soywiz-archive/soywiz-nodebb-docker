@@ -1,3 +1,4 @@
+#!/bin/bash
 export DOMAIN=localhost
 BASENAME=$(dirname "$(readlink -f "$0")")
 docker run -d --name $DOMAIN \
